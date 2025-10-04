@@ -44,9 +44,7 @@ curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/
 nano .claude/docs/proj.md
 
 # Launch Clide
-./clide_xml.sh  # XML mode (recommended)
-# or
-./clide.sh      # Standard mode
+./clide.sh
 ```
 
 ## Alternative: Without GitHub CLI
@@ -67,7 +65,7 @@ curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/
 
 1. Clones the private `clide-code` repository (requires authentication)
 2. Installs `.claude/` directory into your project
-3. Copies launcher scripts to project root (`clide.sh`, `clide_xml.sh`)
+3. Copies launcher script to project root (`clide.sh`)
 4. Creates fresh memory bank database
 5. Generates project template at `.claude/docs/proj.md`
 
@@ -88,7 +86,7 @@ curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/
 **Solution**:
 ```bash
 # Remove existing installation
-rm -rf .claude clide.sh clide_xml.sh
+rm -rf .claude clide.sh
 
 # Or upgrade instead
 cd .claude && ./tools/upgrade.sh
@@ -115,5 +113,5 @@ Digital Labor represents the next evolution of AI assistance - not tools that he
 ```bash
 gh auth login
 curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/install.sh | bash
-./clide_xml.sh
+./clide.sh
 ```
