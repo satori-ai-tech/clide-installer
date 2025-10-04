@@ -123,18 +123,52 @@ else
 fi
 
 echo ""
+echo "Step 5: Creating default configuration..."
+# Only create config if it doesn't exist
+if [ ! -f "${TARGET_DIR}/clide.config.sh" ]; then
+    cat > "${TARGET_DIR}/clide.config.sh" << 'CONFIGEOF'
+#!/bin/bash
+# Clide Code User Configuration
+# Customize WHO you are and your company context
+
+# User Identity
+USER_NAME="User"
+USER_ROLE="Developer"
+USER_COMPANY="Your Company"
+USER_GREETING="Sir"
+
+# Company Context
+COMPANY_MISSION="Building great software"
+COMPANY_VALUES="Quality and reliability"
+TECH_STACK="Your preferred stack"
+CODE_STYLE="Clean and maintainable"
+DEPLOYMENT_POLICY="Test before production"
+
+# Communication
+VOICE_ENABLED=true
+COMMUNICATION_STYLE="Professional and concise"
+ALERT_ON_MISALIGNMENT=true
+CONFIGEOF
+    echo "   ✓ Created default config"
+else
+    echo "   ✓ Preserved existing config"
+fi
+
+echo ""
 echo "==========================================="
 echo "Installation Complete!"
 echo "==========================================="
 echo ""
 echo "Next Steps:"
-echo "1. Edit .claude/docs/proj.md with your project details"
-echo "2. Launch Clide:"
+echo "1. Edit .claude/clide.config.sh (your identity & company context)"
+echo "2. Edit .claude/docs/proj.md (project details)"
+echo "3. Launch Clide:"
 echo "   ./clide.sh"
 echo ""
 echo "Add to .gitignore:"
 echo "  .claude/tools/memory_bank.db"
 echo "  .claude/clide-sessions.txt"
+echo "  .claude/clide.config.sh"
 echo "  clide.sh"
 echo ""
 echo "Upgrade later:"
