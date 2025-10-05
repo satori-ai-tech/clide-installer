@@ -1,3 +1,9 @@
+<div align="center">
+
+![Clyde Code Agent](logo.png)
+
+</div>
+
 # Clyde Code Agent Installer
 
 Public installer for [Clyde Code Agent](https://github.com/satori-ai-tech/clyde-code) - Digital Labor for software development.
