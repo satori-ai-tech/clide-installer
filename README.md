@@ -1,10 +1,10 @@
-# Clide Code Installer
+# Clyde Code Agent Installer
 
-Public installer for [Clide Code](https://github.com/satori-ai-tech/clide-code) - Digital Labor for software development.
+Public installer for [Clyde Code Agent](https://github.com/satori-ai-tech/clyde-code) - Digital Labor for software development.
 
-## What is Clide Code?
+## What is Clyde Code Agent?
 
-Clide Code is **Digital Labor** - an AI developer that:
+Clyde Code Agent is **Digital Labor** - an AI developer that:
 - **Remembers everything** across all sessions
 - **Learns from mistakes** and never repeats them
 - **Works from GitHub Issues** like a real developer
@@ -31,10 +31,10 @@ gh auth login
 # Select: HTTPS protocol (important!)
 ```
 
-### Step 2: Install Clide Code
+### Step 2: Install Clyde Code Agent
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clyde-installer/main/install.sh | bash
 ```
 
 ### Step 3: Configure and Launch
@@ -43,8 +43,8 @@ curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/
 # Edit project context
 nano .claude/docs/proj.md
 
-# Launch Clide
-./clide.sh
+# Launch Clyde
+./clyde.sh
 ```
 
 ## Alternative: Without GitHub CLI
@@ -56,16 +56,16 @@ If you don't have GitHub CLI:
 git config --global credential.helper store
 
 # Run installer
-curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/install.sh | bash
+curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clyde-installer/main/install.sh | bash
 
 # Enter GitHub credentials when prompted
 ```
 
 ## What the Installer Does
 
-1. Clones the private `clide-code` repository (requires authentication)
+1. Clones the private `clyde-code` repository (requires authentication)
 2. Installs `.claude/` directory into your project
-3. Copies launcher script to project root (`clide.sh`)
+3. Copies launcher script to project root (`clyde.sh`)
 4. Creates fresh memory bank database
 5. Generates project template at `.claude/docs/proj.md`
 
@@ -81,12 +81,12 @@ curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/
 
 ### "Directory .claude already exists"
 
-**Cause**: Clide Code already installed
+**Cause**: Clyde Code Agent already installed
 
 **Solution**:
 ```bash
 # Remove existing installation
-rm -rf .claude clide.sh
+rm -rf .claude clyde.sh
 
 # Or upgrade instead
 cd .claude && ./tools/upgrade.sh
@@ -95,14 +95,14 @@ cd .claude && ./tools/upgrade.sh
 ## Support
 
 - **Email**: support@satori-ai-tech.com
-- **Documentation**: [GitHub - clide-code](https://github.com/satori-ai-tech/clide-code) (requires access)
+- **Documentation**: [GitHub - clyde-code](https://github.com/satori-ai-tech/clyde-code) (requires access)
 - **Purchase Access**: https://satori-ai-tech.com
 
-## About Clide Code
+## About Clyde Code Agent
 
-Clide Code is developed by **Satori AI Tech** as part of our Digital Labor initiative.
+Clyde Code Agent is developed by **Satori AI Tech** as part of our Digital Labor initiative.
 
-Digital Labor represents the next evolution of AI assistance - not tools that help you code, but AI team members that code *for* you. With persistent memory, the ability to learn from mistakes, and trust to deploy production systems, Clide Code demonstrates what's possible when AI works like humans work.
+Digital Labor represents the next evolution of AI assistance - not tools that help you code, but AI team members that code *for* you. With persistent memory, the ability to learn from mistakes, and trust to deploy production systems, Clyde Code Agent demonstrates what's possible when AI works like humans work.
 
 **Learn more**: [satori-ai-tech.com](https://satori-ai-tech.com)
 
@@ -112,6 +112,6 @@ Digital Labor represents the next evolution of AI assistance - not tools that he
 
 ```bash
 gh auth login
-curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/install.sh | bash
-./clide.sh
+curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clyde-installer/main/install.sh | bash
+./clyde.sh
 ```
