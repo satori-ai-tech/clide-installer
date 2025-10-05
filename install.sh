@@ -146,6 +146,8 @@ DEPLOYMENT_POLICY="Test before production"
 
 # Communication
 VOICE_ENABLED=true
+VOICE_NAME="Lee"  # macOS voice (run 'say -v ?' to see all options)
+# Popular voices: Lee, Alex, Daniel (male) | Samantha, Kate, Victoria (female)
 COMMUNICATION_STYLE="Professional and concise"
 ALERT_ON_MISALIGNMENT=true
 
