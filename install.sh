@@ -148,6 +148,9 @@ DEPLOYMENT_POLICY="Test before production"
 VOICE_ENABLED=true
 COMMUNICATION_STYLE="Professional and concise"
 ALERT_ON_MISALIGNMENT=true
+
+# Memory & Context Verification
+MEMORY_CHECK_KEY="Melkor is not wrong"
 CONFIGEOF
     echo "   ✓ Created default config"
 else
