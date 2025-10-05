@@ -115,8 +115,9 @@ echo ""
 echo "Step 4: Initializing for new project..."
 if [ -f "${TARGET_DIR}/tools/reset_db.sh" ]; then
     cd "${TARGET_DIR}"
-    echo "yes" | ./tools/reset_db.sh
+    echo "yes" | ./tools/reset_db.sh > /dev/null 2>&1
     cd - > /dev/null
+    echo "   ✓ Fresh memory bank initialized"
 else
     echo "ERROR: reset_db.sh not found."
     exit 1
@@ -159,9 +160,12 @@ else
     echo "   ✓ Preserved existing config"
 fi
 
+# Read version
+CLIDE_VERSION=$(cat "${TARGET_DIR}/VERSION" 2>/dev/null || echo "unknown")
+
 echo ""
 echo "==========================================="
-echo "Installation Complete!"
+echo "Clide Code v${CLIDE_VERSION} Installed!"
 echo "==========================================="
 echo ""
 echo "Next Steps:"
