@@ -77,13 +77,19 @@ echo ""
 TEMP_CLONE="/tmp/clide-install-$$"
 
 # Try to clone - will use gh credentials if available
-if git clone --depth 1 "${REPO_URL}" "${TEMP_CLONE}" 2>/dev/null; then
+CLONE_ERROR=$(git clone --depth 1 "${REPO_URL}" "${TEMP_CLONE}" 2>&1)
+CLONE_STATUS=$?
+
+if [ $CLONE_STATUS -eq 0 ]; then
     echo "✓ Successfully cloned repository"
 else
     echo ""
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
     echo "ERROR: Failed to clone repository"
     echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    echo ""
+    echo "Git error:"
+    echo "$CLONE_ERROR"
     echo ""
     echo "Possible reasons:"
     echo "1. You haven't been added as a collaborator"
