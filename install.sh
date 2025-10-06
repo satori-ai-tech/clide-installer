@@ -1,27 +1,36 @@
 #!/bin/bash
 
 ###############################################################################
-# Clide Code Public Installation Script
+# Clyde Code Installer v1.0.0
 #
-# This public installer clones the private clide-code repository.
-# Customers must have been added as collaborators with READ access.
+# Public installer for Clyde Code Agent - Digital Labor for software development.
+# Clones the private clyde-code repository for customers with collaborator access.
 #
 # Usage:
-#   curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clide-installer/main/install.sh | bash
+#   curl -sSL https://raw.githubusercontent.com/satori-ai-tech/clyde-installer/main/install.sh | bash
 #
 # Prerequisites:
-#   - GitHub authentication (gh auth login or git credentials)
-#   - Collaborator access to satori-ai-tech/clide-code
+#   - GitHub authentication (gh auth login recommended)
+#   - Collaborator access to satori-ai-tech/clyde-code
+#
+# Version History:
+#   v1.0.0 - Initial versioned release
+#            - Fixed authentication using gh repo clone
+#            - Updated for Clide → Clyde rebrand
+#            - Added version tracking
 #
 ###############################################################################
 
 set -e
 
+# Installer version
+INSTALLER_VERSION="1.0.0"
+
 REPO_URL="https://github.com/satori-ai-tech/clide-code.git"
 TARGET_DIR=".claude"
 
 echo "==========================================="
-echo "Clide Code Installation"
+echo "Clyde Code Installer v${INSTALLER_VERSION}"
 echo "==========================================="
 echo ""
 echo "Target directory: ${TARGET_DIR}"
