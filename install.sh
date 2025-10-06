@@ -73,7 +73,7 @@ else
 fi
 
 echo ""
-echo "Step 1: Cloning Clide Code (private repository)..."
+echo "Step 1: Cloning Clyde Code (private repository)..."
 echo "  This requires authentication..."
 echo ""
 
@@ -129,11 +129,15 @@ rm -rf "${TEMP_CLONE}"
 echo "   ✓ Installed .claude directory"
 
 echo ""
-echo "Step 3: Setting up launcher script..."
+echo "Step 3: Setting up launcher script and hooks..."
 # Copy clyde.sh to project root for easy access
 cp "${TARGET_DIR}/clyde.sh" "./clyde.sh"
 chmod +x "./clyde.sh"
 echo "   ✓ Copied clyde.sh to project root"
+
+# Copy settings.local.json to .claude directory for Claude Code hooks
+cp "${TARGET_DIR}/settings.local.json" "./.claude/settings.local.json"
+echo "   ✓ Installed settings.local.json for Claude Code hooks"
 
 echo ""
 echo "Step 4: Initializing for new project..."
@@ -153,7 +157,7 @@ echo "Step 5: Creating default configuration..."
 if [ ! -f "${TARGET_DIR}/clide.config.sh" ]; then
     cat > "${TARGET_DIR}/clide.config.sh" << 'CONFIGEOF'
 #!/bin/bash
-# Clide Code User Configuration
+# Clyde Code User Configuration
 # Customize WHO you are and your company context
 
 # User Identity
@@ -189,7 +193,7 @@ CLIDE_VERSION=$(cat "${TARGET_DIR}/VERSION" 2>/dev/null || echo "unknown")
 
 echo ""
 echo "==========================================="
-echo "Clide Code v${CLIDE_VERSION} Installed!"
+echo "Clyde Code v${CLIDE_VERSION} Installed!"
 echo "==========================================="
 echo ""
 echo "Next Steps:"
@@ -200,8 +204,9 @@ echo "   ./clyde.sh"
 echo ""
 echo "Add to .gitignore:"
 echo "  .claude/tools/memory_bank.db"
-echo "  .claude/clide-sessions.txt"
-echo "  .claude/clide.config.sh"
+echo "  .claude/clyde-sessions.txt"
+echo "  .claude/clyde.config.sh"
+echo "  .claude/settings.local.json"
 echo "  clyde.sh"
 echo ""
 echo "Upgrade later:"
