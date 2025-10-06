@@ -46,12 +46,20 @@ if ! command -v git &> /dev/null; then
     exit 1
 fi
 
-# Check for gh CLI (optional but recommended)
+# Check for gh CLI and configure git to use it
+GH_AVAILABLE=false
 if command -v gh &> /dev/null; then
     echo "✓ GitHub CLI detected"
     GH_STATUS=$(gh auth status 2>&1 || echo "not authenticated")
     if echo "$GH_STATUS" | grep -q "Logged in"; then
         echo "✓ Authenticated with GitHub"
+        GH_AVAILABLE=true
+
+        # Configure git to use GitHub CLI as credential helper
+        echo "  Configuring git to use GitHub CLI credentials..."
+        git config --global credential.helper ""
+        git config --global --add credential.helper '!gh auth git-credential'
+        echo "  ✓ Git configured to use GitHub CLI"
     else
         echo "⚠ Not authenticated with GitHub CLI"
         echo "  Run: gh auth login (select HTTPS)"
@@ -68,7 +76,7 @@ echo ""
 
 TEMP_CLONE="/tmp/clide-install-$$"
 
-# Try to clone - will prompt for auth if needed
+# Try to clone - will use gh credentials if available
 if git clone --depth 1 "${REPO_URL}" "${TEMP_CLONE}" 2>/dev/null; then
     echo "✓ Successfully cloned repository"
 else
