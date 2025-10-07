@@ -143,7 +143,7 @@ echo ""
 echo "Step 4: Initializing for new project..."
 if [ -f "${TARGET_DIR}/tools/reset_db.sh" ]; then
     cd "${TARGET_DIR}"
-    echo "yes" | ./tools/reset_db.sh > /dev/null 2>&1
+    echo "yes" | ./tools/reset_db.sh
     cd - > /dev/null
     echo "   ✓ Fresh memory bank initialized"
 else
