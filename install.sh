@@ -141,13 +141,13 @@ echo "   ✓ Installed settings.local.json for Claude Code hooks"
 
 echo ""
 echo "Step 4: Initializing for new project..."
-if [ -f "${TARGET_DIR}/tools/reset_db.sh" ]; then
+if [ -f "${TARGET_DIR}/tools/install_db.sh" ]; then
     cd "${TARGET_DIR}"
-    echo "yes" | ./tools/reset_db.sh
+    ./tools/install_db.sh
     cd - > /dev/null
     echo "   ✓ Fresh memory bank initialized"
 else
-    echo "ERROR: reset_db.sh not found."
+    echo "ERROR: install_db.sh not found."
     exit 1
 fi
 
