@@ -129,18 +129,7 @@ rm -rf "${TEMP_CLONE}"
 echo "   ✓ Installed .claude directory"
 
 echo ""
-echo "Step 3: Setting up launcher script and hooks..."
-# Copy clyde.sh to project root for easy access
-cp "${TARGET_DIR}/clyde.sh" "./clyde.sh"
-chmod +x "./clyde.sh"
-echo "   ✓ Copied clyde.sh to project root"
-
-# Copy settings.local.json to .claude directory for Claude Code hooks
-cp "${TARGET_DIR}/settings.local.json" "./.claude/settings.local.json"
-echo "   ✓ Installed settings.local.json for Claude Code hooks"
-
-echo ""
-echo "Step 4: Initializing for new project..."
+echo "Step 3: Initializing fresh memory bank..."
 if [ -f "${TARGET_DIR}/tools/install_db.sh" ]; then
     cd "${TARGET_DIR}"
     ./tools/install_db.sh
@@ -150,6 +139,13 @@ else
     echo "ERROR: install_db.sh not found."
     exit 1
 fi
+
+echo ""
+echo "Step 4: Setting up launcher script..."
+# Copy clyde.sh to project root for easy access
+cp "${TARGET_DIR}/clyde.sh" "./clyde.sh"
+chmod +x "./clyde.sh"
+echo "   ✓ Copied clyde.sh to project root"
 
 echo ""
 echo "Step 5: Creating default configuration..."
