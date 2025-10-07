@@ -148,6 +148,26 @@ chmod +x "./clyde.sh"
 echo "   ✓ Copied clyde.sh to project root"
 
 echo ""
+echo "Step 4.5: Cleaning up development bibles..."
+# Keep only customer-facing bibles
+cd "${TARGET_DIR}/bibles"
+# Remove all non-customer bibles
+rm -f bible_claude_rates.md
+rm -f bible_clyde_code_marketing.md
+rm -f bible_larafast_product_config.md
+rm -f bible_laravel_mcp.md
+rm -f bible_pitch_deck.md
+rm -f bible_style_guide.md
+# Remove development policies, keep only example
+cd policies
+rm -f bible_satori_values.md
+rm -f bible_installer.md
+cd ../../..
+echo "   ✓ Cleaned development bibles"
+echo "   ✓ Kept: bible_clyde_code_workflow.md, policies/bible_policy_example.md"    
+
+
+echo ""
 echo "Step 5: Creating default configuration..."
 # Only create config if it doesn't exist
 if [ ! -f "${TARGET_DIR}/clide.config.sh" ]; then
